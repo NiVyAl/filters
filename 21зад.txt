@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Кекстаграм: сравнение фото</title>
+        <base href="/assets/course98/">
+        <link href="style.css" rel="stylesheet">
+        <link href="course.css" rel="stylesheet">
+    </head>
+    <body class="keksta">
+        <div class="photos">
+            <div class="photo"></div>
+        </div>
+        <ul class="toggle-controls">
+            <li class="walden" data-filter="walden"></li>
+            <li class="toaster" data-filter="toaster"></li>
+            <li class="kelvin" data-filter="kelvin"></li>
+        </ul>
+        <script src="script.js"></script>
+    </body>
+</html>
+
+//
+
+.photos {
+    position: relative;
+}
+
+.photo,
+.photo-original {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.photo {
+    z-index: 10;
+    background-image: url("img/spb-1.jpg");
+}
+
+.photo-original {
+    z-index: 20;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.walden {
+    filter: contrast(0.9) brightness(1.2) hue-rotate(-20deg) saturate(1.7) sepia(0.4);
+}
+
+.toaster {
+    filter: saturate(2.5) hue-rotate(-30deg) contrast(0.67) sepia(0.4);
+}
+
+.kelvin {
+    filter: contrast(1.1) brightness(1.3) saturate(2.4) sepia(0.4);
+}
+
+//
+
+var controls = document.querySelectorAll('.toggle-controls li');
+var photo = document.querySelector('.photo');
+
+for (var i = 0; i < controls.length; i++) {
+    controls[i].innerHTML = controls[i].dataset.filter;
+    clickControl(controls[i]);
+}
+
+function toggleFilter(control) {
+    for (var i = 0; i < controls.length; i++) {
+        controls[i].classList.remove('active');
+        photo.classList.remove(controls[i].dataset.filter);
+    }
+
+    control.classList.add('active');
+
+    if (photo) {
+        photo.classList.add(control.dataset.filter);
+    }
+}
+
+function clickControl(control) {
+    control.addEventListener('click', function() {
+        toggleFilter(control);
+    });
+}
+
+var defaultFilter = document.querySelector('li.toaster');
+toggleFilter(defaultFilter);
+
+//
+
+// 23 задание
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Кекстаграм: двигаем ползунок</title>
+        <base href="/assets/course98/">
+        <link href="style.css" rel="stylesheet">
+        <link href="course.css" rel="stylesheet">
+    </head>
+    <body class="keksta">
+        <div class="photos">
+            <div class="photo"></div>
+            <div class="photo-original"></div>
+            <div class="separator">↔</div>
+        </div>
+        <ul class="toggle-controls">
+            <li class="walden" data-filter="walden"></li>
+            <li class="toaster" data-filter="toaster"></li>
+            <li class="kelvin" data-filter="kelvin"></li>
+        </ul>
+        <script src="script.js"></script>
+    </body>
+</html>
+
+//
+.photos {
+    position: relative;
+}
+
+.photo,
+.photo-original {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.photo {
+    z-index: 10;
+    background-image: url("img/spb-1.jpg");
+}
+
+.photo-original {
+    z-index: 20;
+    width: 50%;
+    background-image: url("img/spb-1.jpg");
+}
+
+.separator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 30;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.walden {
+    filter: contrast(0.9) brightness(1.2) hue-rotate(-20deg) saturate(1.7) sepia(0.4);
+}
+
+.toaster {
+    filter: saturate(2.5) hue-rotate(-30deg) contrast(0.67) sepia(0.4);
+}
+
+.kelvin {
+    filter: contrast(1.1) brightness(1.3) saturate(2.4) sepia(0.4);
+}
+
+//
+
+var original = document.querySelector('selector');
+var separator = document.querySelector('selector');
+
+if (original && separator) {
+    original.style.width = '50%';
+    separator.style.left = '50%';
+}
+
+var controls = document.querySelectorAll('.toggle-controls li');
+var photo = document.querySelector('.photo');
+
+for (var i = 0; i < controls.length; i++) {
+    controls[i].innerHTML = controls[i].dataset.filter;
+    clickControl(controls[i]);
+}
+
+function toggleFilter(control) {
+    for (var i = 0; i < controls.length; i++) {
+        controls[i].classList.remove('active');
+        photo.classList.remove(controls[i].dataset.filter);
+    }
+
+    control.classList.add('active');
+
+    if (photo) {
+        photo.classList.add(control.dataset.filter);
+    }
+}
+
+function clickControl(control) {
+    control.addEventListener('click', function() {
+        toggleFilter(control);
+    });
+}
+
+var defaultFilter = document.querySelector('li.toaster');
+toggleFilter(defaultFilter);
