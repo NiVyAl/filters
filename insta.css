@@ -83,6 +83,10 @@ body{
     filter: saturate(1.5);
 }
 
+.git-offline {
+    filter: invert(1);
+}
+
 /* */
 
 .reset {

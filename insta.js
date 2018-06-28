@@ -38,5 +38,6 @@ var useFilter = function(filterAddress) {
 
 for (var i=0; i<filters.length; i++){
     filters[i].innerHTML = filters[i].dataset.filtername;
+    filters[i].classList.add(filters[i].dataset.filtername);
     clickControl(filters[i]);
 }
