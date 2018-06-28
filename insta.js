@@ -1,4 +1,4 @@
-var photo = document.querySelector('.photo-container img');
+var photo = document.querySelector('.photo-container');
 var filters = document.querySelectorAll('.filters li');
 var reset = document.querySelector('.reset');
 var isFilter = false;

@@ -24,7 +24,16 @@ body{
     border: 10px solid white;
     box-shadow: 0 0 10px 2px #bcbcbc;
     width: 300px;
-    height: 300px;
+    height: 300px;    
+}
+
+.photo-container::before {
+    background-image: url("spb-2.jpg");
+    content: "";
+    display: block;
+    width: 100%;
+    background-size: cover;
+    height: 100%;
 }
 
 .filters {
@@ -40,16 +49,24 @@ body{
 .filters li {
     float: left;
     margin-left: 40px;
-    margin-top: 20px;
-    background-image: url("spb.jpg");
-    background-size: cover;
+    margin-top: 40px;
     height: 100px;
     width: 100px;
     text-align: center;
     cursor: pointer;
     box-sizing: border-box;
-    padding-top: 70px;
     word-wrap: break-word;
+    line-height: 25px;
+}
+
+.filters li::before {
+    height: 100px;
+    width: 100px; 
+    content: "";
+    display: block;
+    background-image: url("spb.jpg");
+    background-size: cover;
+    box-sizing: border-box;
 }
 
 .clearfix::after {
@@ -63,27 +80,27 @@ body{
 }
 
 /* фильтры */
-.walden {
+.walden::before {
     filter: contrast(0.9) brightness(1.2) hue-rotate(-20deg) saturate(1.7) sepia(0.4);
 }
 
-.toaster {
+.toaster::before {
     filter: saturate(2.5) hue-rotate(-30deg) contrast(0.67) sepia(0.4);
 }
 
-.kelvin {
+.kelvin::before {
     filter: contrast(1.1) brightness(1.3) saturate(2.4) sepia(0.4);
 }
 
-.sepia {
+.sepia::before {
     filter: sepia(1);
 }
 
-.saturate {
+.saturate::before {
     filter: saturate(1.5);
 }
 
-.git-offline {
+.git-offline::before {
     filter: invert(1);
 }
 
